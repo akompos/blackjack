@@ -1,6 +1,8 @@
 import random
 
 
+
+
 class Card(object):
     def __init__(self, suit, val):
         self.suit = suit
@@ -54,12 +56,17 @@ class Player(object):
 #card.show()
 
 deck = Deck()
-deck.shuffle()
+print(len(deck.cards))
+#deck.shuffle()
+
 
 #card = deck.drawCard()
 #card.show()
 
-alex = Player("Alex")
-alex.draw(deck)
-alex.showHand()
-print(alex.name)
+#alex = Player("Alex")
+#alex.draw(deck)
+#alex.showHand()
+#dealer = Player("Dealer")
+#dealer.draw(deck)
+#dealer.showHand()
+
