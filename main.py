@@ -9,27 +9,27 @@ class Card(object):
         self.value = val
 
     def show(self):
-        print("{} of {}".format(self.value, self.suit))
+        return str(self.value) + str(self.suit)
 
 
 class Deck(object):
     def __init__(self):
         self.cards = []
-        self.build()
+        self.__build()
 
-    def build(self):
-        for s in ["Spades", "Clubs", "Diamonds", "Hearts"]:
-            for v in range(1,14):
-                self.cards.append(Card(s, v))
+    def __build(self):
+        for suit in ["Spades", "Clubs", "Diamonds", "Hearts"]:
+            for val in range(1,14):
+                self.cards.append(Card(suit, val))
 
     def show(self):
-        for c in self.cards:
-            c.show()
+        for card in self.cards:
+            card.show()
 
     def shuffle(self):
         for i in range(len(self.cards)-1, 0, -1):
             r = random.randint(0, i)
-            self.cards[i], self.cards[r] = self.cards[r], self.cards[i]
+            self.cards[i], self.cards[r] = self.cards[r], self.cads[i]
 
     def drawCard(self):
         return self.cards.pop()
@@ -44,7 +44,7 @@ class Player(object):
         self.hand.append(deck.drawCard())
         return self
 
-    def showHand(self):
+    def showhand(self):
         for card in self.hand:
             card.show()
 
@@ -55,17 +55,21 @@ class Player(object):
 
 #card.show()
 
-deck = Deck()
-print(len(deck.cards))
+#deck = Deck()
+#print(len(deck.cards))
+#deck.show()
+
 #deck.shuffle()
 
 
 #card = deck.drawCard()
 #card.show()
 
-#alex = Player("Alex")
-#alex.draw(deck)
-#alex.showHand()
+alex = Player("Alex")
+deck = Deck()
+alex.draw(deck)
+alex.showhand()
+
 #dealer = Player("Dealer")
 #dealer.draw(deck)
 #dealer.showHand()
